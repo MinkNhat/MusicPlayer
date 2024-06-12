@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-//const PLAYER_STORAGE_KEY = 'Admin';
+const PLAYER_STORAGE_KEY = 'Admin';
 
 const heading = $('.header h2');
 const cdThumb = $('.main-background img');
@@ -20,7 +20,7 @@ const app = {
     isRandom: false,
     isRepeat: false,
     currentIndex: 0,
-    //config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
             name: 'Trò chuyện với thời gian',
@@ -101,10 +101,10 @@ const app = {
         }
         
     ],
-    // setConfig: function(key, value) {
-    //     this.config[key] = value;
-    //     localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
-    // },
+    setConfig: function(key, value) {
+        this.config[key] = value;
+        localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+    },
     render: function() { 
         var htmls = this.songs.map((song,index) => {
             return `
@@ -130,7 +130,7 @@ const app = {
         playList.innerHTML = htmls.join('');
     },
     defineProperties: function() {
-        // add 'currentSong' proprety to app 
+        //add 'currentSong' proprety to app 
         Object.defineProperty(this,'currentSong', {
             get: function() {
                 return this.songs[this.currentIndex];
@@ -243,14 +243,14 @@ const app = {
         //random song
         randomBtn.onclick = function() {
             app.isRandom = !app.isRandom;
-            //app.setConfig('isRandom', app.isRandom);
+            app.setConfig('isRandom', app.isRandom);
             randomBtn.classList.toggle('active', app.isRandom);
         }
 
         //repeat song
         repeatBtn.onclick = function() {
             app.isRepeat = !app.isRepeat;
-            //app.setConfig('isRepeat', app.isRepeat);
+            app.setConfig('isRepeat', app.isRepeat);
             repeatBtn.classList.toggle('active', app.isRepeat);
         }
     },
@@ -259,14 +259,14 @@ const app = {
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
         //change status played
-        // this.setConfig('currentIndex', this.currentIndex);
+        this.setConfig('currentIndex', this.currentIndex);
         // Object.defineProperty(this.songs[this.currentIndex],"played", {value:true});
     },
-    // loadConfig: function() {
-    //     this.isRandom = this.config.isRandom;
-    //     this.isRepeat = this.config.isRepeat;
-    //     this.currentIndex = this.config.currentIndex;
-    // },
+    loadConfig: function() {
+        this.isRandom = this.config.isRandom;
+        this.isRepeat = this.config.isRepeat;
+        this.currentIndex = this.config.currentIndex;
+    },
     // initListRandomSongs: function() {
     //     var randomList = [...app.songs];
     //     return randomList;
@@ -332,15 +332,15 @@ const app = {
     
 
     start: function() {
-        //this.loadConfig(); //load setting
+        this.loadConfig(); //load setting
         this.defineProperties();
         this.loadCurrentSong();
         this.handleEvent();
 
         this.render();
         // set lai trang thai ban dau
-        // randomBtn.classList.toggle('active', app.isRandom);
-        // repeatBtn.classList.toggle('active', app.isRepeat);
+        randomBtn.classList.toggle('active', app.isRandom);
+        repeatBtn.classList.toggle('active', app.isRepeat);
     }
 }
 
