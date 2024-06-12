@@ -25,77 +25,77 @@ const app = {
         {
             name: 'Trò chuyện với thời gian',
             singer: 'Tryler',
-            path: './assets/mp3/TroChuyenVoiThoiGian.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img2.jpeg',
             played: false
         },
         {
             name: 'Người Đáng Thương Là Anh',
             singer: 'Only C',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img1.jpeg',
             played: false
         },
         {
             name: 'Chờ Anh Nhé',
             singer: 'Hoàng Dũng',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img4.jpeg',
             played: false
         },
         {
             name: 'Phố Không Em',
             singer: 'Thái Đinh',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img5.jpeg',
             played: false
         },
         {
             name: 'Cảm Ơn Và Xin Lỗi',
             singer: 'Chillies',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img7.jpeg',
             played: false
         },
         {
             name: 'Tình Yêu Là',
             singer: 'Hiền Hồ',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img6.jpeg',
             played: false
         },
         {
             name: 'Mơ',
             singer: 'Vũ Cát Tường',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img8.jpeg',
             played: false
         },
         {
             name: 'Mưa Cứ Rơi',
             singer: 'Mr.A',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img9.jpeg',
             played: false
         },
         {
             name: 'Gọi Tên Một Nỗi Buồn',
             singer: 'Lâm Bảo Ngọc',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img10.jpeg',
             played: false
         },
         {
             name: 'Anh',
             singer: 'Hồ Quỳnh Hương',
-            path: './assets/mp3/NguoiDangThuongLaAnh.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img11.jpeg',
             played: false
         },
         {
             name: 'Miên Man',
             singer: 'Minh Huy',
-            path: './assets/mp3/MienMan.mp3',
+            path: './assets/mp3/music.mp3',
             image: './assets/img/img3.jpeg',
             played: false
         }
@@ -255,7 +255,7 @@ const app = {
         }
     },
     loadCurrentSong: function() {
-        heading.textContent = this.currentSong.name;
+        heading.innerText = this.currentSong.name;
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
         //change status played
@@ -284,7 +284,6 @@ const app = {
         do {
             var random = Math.floor(Math.random() * this.songs.length);
         } while(random == this.currentIndex || this.songs[random].played == true);
-        console.log(this.currentIndex, random);
         this.currentIndex = random;
         this.loadCurrentSong();
         audio.play();
