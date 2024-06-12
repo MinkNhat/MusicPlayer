@@ -255,7 +255,7 @@ const app = {
         }
     },
     loadCurrentSong: function() {
-        heading.innerText = this.currentSong.name;
+        heading.textContent = this.currentSong.name;
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
         //change status played
