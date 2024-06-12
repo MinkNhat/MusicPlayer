@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const PLAYER_STORAGE_KEY = 'Admin';
+const PLAYER_STORAGE_KEY = 'ADMIN_PLAYER'
 
 const heading = $('.header h2');
 const cdThumb = $('.main-background img');
@@ -263,9 +263,15 @@ const app = {
         Object.defineProperty(this.songs[this.currentIndex],"played", {value:true});
     },
     loadConfig: function() {
-        this.isRandom = this.config.isRandom;
-        this.isRepeat = this.config.isRepeat;
-        this.currentIndex = this.config.currentIndex;
+        if(this.config.isRandom != null) {
+            this.isRandom = this.config.isRandom;
+        }
+        if(this.config.isRepeat != null) {
+            this.isRepeat = this.config.isRepeat;
+        }
+        if(this.config.currentIndex != null) {
+            this.currentIndex = this.config.currentIndex;
+        }
     },
     initListRandomSongs: function() {
         var randomList = [...app.songs];
