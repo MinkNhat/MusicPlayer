@@ -219,40 +219,40 @@ const app = {
         }
 
         //choose song ( click song in playlist )
-        // playList.onclick = function(e) {
-        //     const songNode = e.target.closest('.song:not(.active-song)');
-        //     const option = e.target.closest('.option');
-        //     if(songNode || option) {
-        //         //when click song in playlist
-        //         if(songNode) {
-        //             app.currentIndex = Number(songNode.dataset.index);
-        //             app.loadCurrentSong();
-        //             app.render();
-        //             audio.play();
-        //             cdRotate.play();
-        //             app.playing();
-        //         }
+        playList.onclick = function(e) {
+            const songNode = e.target.closest('.song:not(.active-song)');
+            const option = e.target.closest('.option');
+            if(songNode || option) {
+                //when click song in playlist
+                if(songNode) {
+                    app.currentIndex = Number(songNode.dataset.index);
+                    app.loadCurrentSong();
+                    app.render();
+                    audio.play();
+                    cdRotate.play();
+                    app.playing();
+                }
 
-        //         //when click option ( ... )
-        //         if(option) {
+                //when click option ( ... )
+                if(option) {
                     
-        //         }
-        //     }
-        // }
+                }
+            }
+        }
 
         //random song
-        // randomBtn.onclick = function() {
-        //     app.isRandom = !app.isRandom;
-        //     app.setConfig('isRandom', app.isRandom);
-        //     randomBtn.classList.toggle('active', app.isRandom);
-        // }
+        randomBtn.onclick = function() {
+            app.isRandom = !app.isRandom;
+            //app.setConfig('isRandom', app.isRandom);
+            randomBtn.classList.toggle('active', app.isRandom);
+        }
 
         //repeat song
-        // repeatBtn.onclick = function() {
-        //     app.isRepeat = !app.isRepeat;
-        //     app.setConfig('isRepeat', app.isRepeat);
-        //     repeatBtn.classList.toggle('active', app.isRepeat);
-        // }
+        repeatBtn.onclick = function() {
+            app.isRepeat = !app.isRepeat;
+            //app.setConfig('isRepeat', app.isRepeat);
+            repeatBtn.classList.toggle('active', app.isRepeat);
+        }
     },
     loadCurrentSong: function() {
         heading.innerText = this.currentSong.name || 'song name hed';
@@ -280,23 +280,23 @@ const app = {
         audio.play();
         this.playing();    
     },
-    // nextRandomSong: function() {
-    //     do {
-    //         var random = Math.floor(Math.random() * this.songs.length);
-    //     } while(random == this.currentIndex || this.songs[random].played == true);
-    //     this.currentIndex = random;
-    //     this.loadCurrentSong();
-    //     audio.play();
-    //     this.playing();  
+    nextRandomSong: function() {
+        do {
+            var random = Math.floor(Math.random() * this.songs.length);
+        } while(random == this.currentIndex || this.songs[random].played == true);
+        this.currentIndex = random;
+        this.loadCurrentSong();
+        audio.play();
+        this.playing();  
 
-    //     if(app.songs.every( (song, index) => song.played == true )) {
-    //         app.songs.forEach( (song, index) => {
-    //             if(index != this.currentIndex) {
-    //                 Object.defineProperty(app.songs[index],"played", {value:false});
-    //             }
-    //         } )
-    //     }
-    // },
+        if(app.songs.every( (song, index) => song.played == true )) {
+            app.songs.forEach( (song, index) => {
+                if(index != this.currentIndex) {
+                    Object.defineProperty(app.songs[index],"played", {value:false});
+                }
+            } )
+        }
+    },
     preSong: function() {
         app.currentIndex--;
         if(app.currentIndex < 0) {
