@@ -1,3 +1,5 @@
+console.log(123);
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
