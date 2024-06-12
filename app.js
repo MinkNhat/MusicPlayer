@@ -259,7 +259,7 @@ const app = {
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
         //change status played
-        this.setConfig('currentIndex', this.currentIndex);
+        //this.setConfig('currentIndex', this.currentIndex);
         // Object.defineProperty(this.songs[this.currentIndex],"played", {value:true});
     },
     loadConfig: function() {
