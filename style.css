@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;;
+}
+
+.main {
+    margin: 0 auto;
+    width: 400px;
+    min-height: 200px;
+}
+
+.player {
+    text-align: center;
+    position: fixed;
+    width: 400px;
+    min-height: 200px;
+    box-shadow: 1px 1px 5px grey;
+    background-color: white;
+    z-index: 1;
+}
+
+.header h4 {
+    color: #7C81AD;
+    padding-top: 10px;
+}
+
+.header h2 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.main-background {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.main-background img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.option {
+    padding-top: 20px;
+}
+
+.option .fa-solid {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.option .fa-solid:hover {
+    opacity: 0.7;
+}
+
+.option .play {
+    background-color: #BEADFA;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.progess {
+    padding-bottom: 20px;
+}
+ 
+.progess .range {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.range:hover {
+    opacity: 1;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.play-list{
+    z-index: 0;
+    width: 400px;
+    min-height: 180px;
+    text-align: center;
+    box-shadow: 1px 1px 5px grey;
+    margin: 420px auto 0;
+    position: absolute;
+    padding: 20px 0;
+    background-color: rgb(235, 233, 233);
+}
+
+.play-list .song {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 360px;
+    height: 60px;
+    padding: 0 10px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 1px 1px 5px grey;
+    margin-bottom: 10px;
+
+}
+
+.play-list img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    line-height: 60px;
+    margin-top: 5px;
+}
+
+.play-list .info {
+    margin-top: 5px;
+}
+
+.play-list .more-option {
+    line-height: 60px;
+}
+
+.active {
+    color: #6f49f8;
+}
+
+.play-list .active-song {
+    background-color: #d0c9ea;
+}
+
+.song:active {
+    opacity: 0.8;
+}
+
+

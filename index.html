@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eaaa9fce1e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="main">
+        <div class="player">
+            <div class="box"></div>
+            <div class="header">
+                <h4>Now playing:</h4>
+                <h2>Song Name</h2>
+            </div>
+            <div class="main-background">
+                <img src="/img/img1.jpeg" alt="">
+            </div>
+            <div class="option">
+                <i class="fa-solid fa-arrow-rotate-left return"></i>
+                <i class="fa-solid fa-backward back"></i>
+                <i class="fa-solid fa-play play"></i>
+                <i class="fa-solid fa-forward next"></i>
+                <i class="fa-solid fa-shuffle random"></i>
+            </div>
+            <div class="progess">
+                <input type="range" class="range" min="0" max="100" step="1" value="0">
+            </div>
+            <audio class="audio" src=""></audio>
+        </div>
+        <div class="play-list">
+            <div class="song">
+                <div class="img">
+                    <img src="/img/img1.jpeg" alt="">
+                </div>
+                <div class="info">
+                    <div class="name">
+                        <h3>Ten bai hat</h3>
+                    </div>
+                    <div class="author">
+                        <p>Ten ca si / nhom nhac</p>
+                    </div>
+                </div>
+                <div class="more-option">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
