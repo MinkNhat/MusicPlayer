@@ -338,7 +338,7 @@ const app = {
     
 
     start: function() {
-        //this.loadConfig(); //load setting
+        this.loadConfig(); //load setting
         this.defineProperties();
         this.loadCurrentSong();
         this.handleEvent();
