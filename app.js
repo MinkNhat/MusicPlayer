@@ -1,18 +1,18 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const PLAYER_STORAGE_KEY = 'Admin';
+//const PLAYER_STORAGE_KEY = 'Admin';
 
-var heading = $('.header h2');
-var cdThumb = $('.main-background img');
-var audio = $('.audio');
-var playList = $('.play-list');
-var playBtn = $('.play');
-var progessRange = $('.progess input');
-var nextBtn = $('.next');
-var preBtn = $('.back');
-var randomBtn = $('.random');
-var repeatBtn = $('.return');
+const heading = $('.header h2');
+const cdThumb = $('.main-background img');
+const audio = $('.audio');
+const playList = $('.play-list');
+const playBtn = $('.play');
+const progessRange = $('.progess input');
+const nextBtn = $('.next');
+const preBtn = $('.back');
+const randomBtn = $('.random');
+const repeatBtn = $('.return');
 
 
 const app = {
@@ -20,91 +20,91 @@ const app = {
     isRandom: false,
     isRepeat: false,
     currentIndex: 0,
-    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    //config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
             name: 'Trò chuyện với thời gian',
             singer: 'Tryler',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img2.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Người Đáng Thương Là Anh',
             singer: 'Only C',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img1.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Chờ Anh Nhé',
             singer: 'Hoàng Dũng',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img4.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Phố Không Em',
             singer: 'Thái Đinh',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img5.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Cảm Ơn Và Xin Lỗi',
             singer: 'Chillies',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img7.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Tình Yêu Là',
             singer: 'Hiền Hồ',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img6.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Mơ',
             singer: 'Vũ Cát Tường',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img8.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Mưa Cứ Rơi',
             singer: 'Mr.A',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img9.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Gọi Tên Một Nỗi Buồn',
             singer: 'Lâm Bảo Ngọc',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img10.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Anh',
             singer: 'Hồ Quỳnh Hương',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img11.jpeg',
-            played: false
+            // played: false
         },
         {
             name: 'Miên Man',
             singer: 'Minh Huy',
             path: './assets/mp3/music.mp3',
             image: './assets/img/img3.jpeg',
-            played: false
+            // played: false
         }
         
     ],
-    setConfig: function(key, value) {
-        this.config[key] = value;
-        localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
-    },
+    // setConfig: function(key, value) {
+    //     this.config[key] = value;
+    //     localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+    // },
     render: function() { 
         var htmls = this.songs.map((song,index) => {
             return `
@@ -219,58 +219,58 @@ const app = {
         }
 
         //choose song ( click song in playlist )
-        playList.onclick = function(e) {
-            const songNode = e.target.closest('.song:not(.active-song)');
-            const option = e.target.closest('.option');
-            if(songNode || option) {
-                //when click song in playlist
-                if(songNode) {
-                    app.currentIndex = Number(songNode.dataset.index);
-                    app.loadCurrentSong();
-                    app.render();
-                    audio.play();
-                    cdRotate.play();
-                    app.playing();
-                }
+        // playList.onclick = function(e) {
+        //     const songNode = e.target.closest('.song:not(.active-song)');
+        //     const option = e.target.closest('.option');
+        //     if(songNode || option) {
+        //         //when click song in playlist
+        //         if(songNode) {
+        //             app.currentIndex = Number(songNode.dataset.index);
+        //             app.loadCurrentSong();
+        //             app.render();
+        //             audio.play();
+        //             cdRotate.play();
+        //             app.playing();
+        //         }
 
-                //when click option ( ... )
-                if(option) {
+        //         //when click option ( ... )
+        //         if(option) {
                     
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         //random song
-        randomBtn.onclick = function() {
-            app.isRandom = !app.isRandom;
-            app.setConfig('isRandom', app.isRandom);
-            randomBtn.classList.toggle('active', app.isRandom);
-        }
+        // randomBtn.onclick = function() {
+        //     app.isRandom = !app.isRandom;
+        //     app.setConfig('isRandom', app.isRandom);
+        //     randomBtn.classList.toggle('active', app.isRandom);
+        // }
 
         //repeat song
-        repeatBtn.onclick = function() {
-            app.isRepeat = !app.isRepeat;
-            app.setConfig('isRepeat', app.isRepeat);
-            repeatBtn.classList.toggle('active', app.isRepeat);
-        }
+        // repeatBtn.onclick = function() {
+        //     app.isRepeat = !app.isRepeat;
+        //     app.setConfig('isRepeat', app.isRepeat);
+        //     repeatBtn.classList.toggle('active', app.isRepeat);
+        // }
     },
     loadCurrentSong: function() {
         heading.innerText = this.currentSong.name;
         cdThumb.src = this.currentSong.image;
         audio.src = this.currentSong.path;
         //change status played
-        this.setConfig('currentIndex', this.currentIndex);
-        Object.defineProperty(this.songs[this.currentIndex],"played", {value:true});
+        // this.setConfig('currentIndex', this.currentIndex);
+        // Object.defineProperty(this.songs[this.currentIndex],"played", {value:true});
     },
-    loadConfig: function() {
-        this.isRandom = this.config.isRandom;
-        this.isRepeat = this.config.isRepeat;
-        this.currentIndex = this.config.currentIndex;
-    },
-    initListRandomSongs: function() {
-        var randomList = [...app.songs];
-        return randomList;
-    },
+    // loadConfig: function() {
+    //     this.isRandom = this.config.isRandom;
+    //     this.isRepeat = this.config.isRepeat;
+    //     this.currentIndex = this.config.currentIndex;
+    // },
+    // initListRandomSongs: function() {
+    //     var randomList = [...app.songs];
+    //     return randomList;
+    // },
     nextSong: function() {
         this.currentIndex++;
         if(this.currentIndex > this.songs.length-1) {
@@ -280,23 +280,23 @@ const app = {
         audio.play();
         this.playing();    
     },
-    nextRandomSong: function() {
-        do {
-            var random = Math.floor(Math.random() * this.songs.length);
-        } while(random == this.currentIndex || this.songs[random].played == true);
-        this.currentIndex = random;
-        this.loadCurrentSong();
-        audio.play();
-        this.playing();  
+    // nextRandomSong: function() {
+    //     do {
+    //         var random = Math.floor(Math.random() * this.songs.length);
+    //     } while(random == this.currentIndex || this.songs[random].played == true);
+    //     this.currentIndex = random;
+    //     this.loadCurrentSong();
+    //     audio.play();
+    //     this.playing();  
 
-        if(app.songs.every( (song, index) => song.played == true )) {
-            app.songs.forEach( (song, index) => {
-                if(index != this.currentIndex) {
-                    Object.defineProperty(app.songs[index],"played", {value:false});
-                }
-            } )
-        }
-    },
+    //     if(app.songs.every( (song, index) => song.played == true )) {
+    //         app.songs.forEach( (song, index) => {
+    //             if(index != this.currentIndex) {
+    //                 Object.defineProperty(app.songs[index],"played", {value:false});
+    //             }
+    //         } )
+    //     }
+    // },
     preSong: function() {
         app.currentIndex--;
         if(app.currentIndex < 0) {
@@ -332,15 +332,15 @@ const app = {
     
 
     start: function() {
-        this.loadConfig(); //load setting
+        //this.loadConfig(); //load setting
         this.defineProperties();
         this.loadCurrentSong();
         this.handleEvent();
 
         this.render();
         // set lai trang thai ban dau
-        randomBtn.classList.toggle('active', app.isRandom);
-        repeatBtn.classList.toggle('active', app.isRepeat);
+        // randomBtn.classList.toggle('active', app.isRandom);
+        // repeatBtn.classList.toggle('active', app.isRepeat);
     }
 }
 
